@@ -1,4 +1,4 @@
-package CSC._0.Assignment3;
+package CSC._0.Assignment3.Cat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 
 public class Cat{
     @Id
-    @GeneratedValue(stategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long catId;
 
     @Column(nullable = false)

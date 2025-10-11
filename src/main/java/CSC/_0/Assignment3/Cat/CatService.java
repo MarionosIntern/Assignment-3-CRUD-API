@@ -1,4 +1,4 @@
-package CSC._0.Assignment3;
+package CSC._0.Assignment3.Cat;
 
 import java.io.IOException;
 import java.io.File;
@@ -16,11 +16,11 @@ public class CatService {
     private CatRepository catRepository;
 
     public Object getAllCats() {
-        return catRepository.findAll();
+        return catRepository.getAllCats();
     }
 
     public Cat getCatById(@PathVariable Long catId) {
-        return catRepository.findById(catId).orElse(null);
+        return catRepository.getCatById(catId);
     }
 
     public Object getCatsByName(String name)
@@ -51,7 +51,7 @@ public class CatService {
     public String writeJson(Cat cat){
         ObjectMapper mapper = new ObjectMapper();
         try {
-            objectMapper.writeValue(new File("cat.json"), cat);
+            mapper.writeValue(new File("cat.json"), cat);
             return "Cat written to JSON file successfully";
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,7 +62,7 @@ public class CatService {
     public Object readJson(){
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return objectMapper.readValue(new File("cat.json"), Cat.class);
+            return mapper.readValue(new File("cat.json"), Cat.class);
         } catch (IOException e){
             e.printStackTrace();
             return null;
