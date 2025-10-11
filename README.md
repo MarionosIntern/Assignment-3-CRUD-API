@@ -26,3 +26,5 @@ We are using ORM (Object-Relational Mapping) to deal with databases. This is a t
 JPA (Jakarta Persistence, formerly Java Persistence API) is a specification that defines ORM standards in Java. It provides an abstraction layer for ORM frameworks to make concrete implementations.
 Hibernate: Hibernate is a popular ORM framework that implements JPA. It simplifies database operations by mapping Java objects to database tables and handling queries efficiently. Spring ORM allows seamless integration of Hibernate and JPA, making database interactions more manageable and reducing boilerplate code.
 
+
+video link: https://www.loom.com/share/a18d89e742b7453f84b744587b54c98c?sid=60e5558b-7734-4d77-be2c-e86ade0c1c95
