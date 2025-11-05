@@ -1,7 +1,7 @@
 package CSC._0.Assignment3.Cat;
 
-import java.io.IOException;
 import java.io.File;
+import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,10 +14,6 @@ public class CatService {
 
     @Autowired
     private CatRepository catRepository;
-
-    public Object getAllCats() {
-        return catRepository.getAllCats();
-    }
 
     public Cat getCatById(@PathVariable Long catId) {
         return catRepository.getCatById(catId);
@@ -48,6 +44,7 @@ public class CatService {
         catRepository.deleteById(catId);
     }
 
+    @SuppressWarnings("CallToPrintStackTrace")
     public String writeJson(Cat cat){
         ObjectMapper mapper = new ObjectMapper();
         try {
@@ -59,6 +56,7 @@ public class CatService {
         }
     }
 
+    @SuppressWarnings("CallToPrintStackTrace")
     public Object readJson(){
         ObjectMapper mapper = new ObjectMapper();
         try {

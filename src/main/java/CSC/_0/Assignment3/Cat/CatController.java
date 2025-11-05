@@ -1,10 +1,6 @@
 package CSC._0.Assignment3.Cat;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,11 +16,6 @@ public class CatController{
     @Autowired
     private CatService catService;
 
-    @GetMapping("/cats")
-    public Object getAllCats(){
-        return catService.getAllCats();
-    }
-
     @GetMapping("/cats/{id}")
     public Cat getCatById(@PathVariable Long id){
         return catService.getCatById(id);
@@ -34,9 +25,8 @@ public class CatController{
     public Object getCatsByName(@RequestParam String key){
         if(key != null){
             return catService.getCatsByName(key);
-        } else {
-            return catService.getAllCats();
         }
+        return key;
     }
 
     @GetMapping("/cats/sex")
@@ -63,7 +53,7 @@ public class CatController{
     @DeleteMapping("/cats/{id}")
     public Object deleteCat(@PathVariable Long id){
         catService.deleteCat(id);
-        return catService.getAllCats();
+        return "Cat with id " + id + " has been deleted.";
     }
 
     @PostMapping("/cats/writeFile")

@@ -47,6 +47,8 @@ public class Cat{
         this.age = age;
         this.weight = weight;
     }
+    
+
 
     public Long getCatId(){
         return catId;

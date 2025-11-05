@@ -11,8 +11,7 @@ public interface CatRepository extends JpaRepository<Cat, Long>{
 
     List<Cat> getCatsByBreed(String breed);
 
-    List<Cat> getAllCats();
-
+    @Query(value = "select * from cats c where c.cat_id = ?1", nativeQuery = true)
     Cat getCatById(Long catId);
 
     @Query(value = "select * from cats c where c.sex = ?1", nativeQuery = true)
