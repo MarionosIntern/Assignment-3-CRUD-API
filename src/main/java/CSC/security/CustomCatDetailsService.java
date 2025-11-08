@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import CSC._0.Assignment3.Cat;
+import CSC._0.Assignment3.Cat.Cat;
 import CSC._0.Assignment3.Cat.CatRepository;
 
 
@@ -19,9 +19,10 @@ public class CustomCatDetailsService {
     private CatRepository catRepository;
 
     @Override
-    public userDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Cat cat = catRepository.findById(Long.parseLong(username))
                 .orElseThrow(() -> new UsernameNotFoundException("Cat not found with id: " + username));
+                
 
     }
 
